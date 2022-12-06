@@ -1,3 +1,4 @@
+import filter from '../../assets/filter.png';
 import nextId from 'react-id-generator';
 
 import first from '../../assets/redBench.png';
@@ -20,6 +21,7 @@ const ALL_PRODUCTS = {
 
     {
       id: nextId(),
+
       image: second,
       description: 'Food',
       name: 'Egg Balloon',
@@ -28,6 +30,7 @@ const ALL_PRODUCTS = {
 
     {
       id: nextId(),
+
       image: third,
       description: 'People',
       name: 'Man',
@@ -36,6 +39,7 @@ const ALL_PRODUCTS = {
 
     {
       id: nextId(),
+
       image: fourth,
       description: 'Landmarks',
       name: 'Architecture',
@@ -44,6 +48,7 @@ const ALL_PRODUCTS = {
 
     {
       id: nextId(),
+
       image: fourth,
       description: 'Landmarks',
       name: 'Architecture',
@@ -52,6 +57,7 @@ const ALL_PRODUCTS = {
 
     {
       id: nextId(),
+
       image: third,
       description: 'People',
       name: 'Man',
@@ -60,6 +66,7 @@ const ALL_PRODUCTS = {
 
     {
       id: nextId(),
+
       image: second,
       description: 'Food',
       name: 'Egg Balloon',
@@ -84,6 +91,7 @@ const ALL_PRODUCTS = {
 
     {
       id: nextId(),
+
       image: second,
       description: 'Food',
       name: 'Egg Balloon',
@@ -92,6 +100,7 @@ const ALL_PRODUCTS = {
 
     {
       id: nextId(),
+
       image: third,
       description: 'People',
       name: 'Man',
@@ -100,6 +109,7 @@ const ALL_PRODUCTS = {
 
     {
       id: nextId(),
+
       image: fourth,
       description: 'Landmarks',
       name: 'Architecture',
@@ -108,6 +118,7 @@ const ALL_PRODUCTS = {
 
     {
       id: nextId(),
+
       image: fourth,
       description: 'Landmarks',
       name: 'Architecture',
@@ -116,6 +127,7 @@ const ALL_PRODUCTS = {
 
     {
       id: nextId(),
+
       image: third,
       description: 'People',
       name: 'Man',
@@ -124,6 +136,7 @@ const ALL_PRODUCTS = {
 
     {
       id: nextId(),
+
       image: second,
       description: 'Food',
       name: 'Egg Balloon',
@@ -143,7 +156,12 @@ const ALL_PRODUCTS = {
 const AllProducts = () => {
   return (
     <section className={classes['all-products']}>
-      {/* <TitleBar /> */}
+      <div className={classes['title-bar']}>
+        <p className={classes.title}>
+          Photography / <span>Premium Photos</span>
+        </p>
+        <img src={filter} alt="filter" />
+      </div>
       <Products products={ALL_PRODUCTS.List} />
     </section>
   );

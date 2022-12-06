@@ -35,7 +35,7 @@ function Navbar() {
               </NavLink>
             </div>
             <div className="nav-item">
-              <NavLink to="" className="nav-links">
+              <NavLink to="/login" className="nav-links">
                 <FaUserAlt size="20px" />
               </NavLink>
             </div>

@@ -1,14 +1,22 @@
 import React from 'react';
-import AllProducts from './components/AllProducts/AllProducts';
-import Navbar from './components/Navbar/Navbar';
-import SingleProduct from './components/SingleProduct/SingleProduct';
+import Login from './pages/auth/SignIn'
+import Register from './pages/auth/SignUp'
+import Home from './pages/index'
+import { Routes, Route } from 'react-router-dom';
+import { AuthContextProvider } from './components/context/AuthContext';
 
 function App() {
   return (
     <>
-      <Navbar />
-      <SingleProduct />
-      <AllProducts />
+   <AuthContextProvider>
+   <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+        </Routes>
+   </AuthContextProvider>
+   
+        
     </>
   );
 }

@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary'
+import { BrowserRouter } from 'react-router-dom';
 
 function ErrorFallback({error, resetErrorBoundary}) {
   return (
@@ -17,13 +17,14 @@ function ErrorFallback({error, resetErrorBoundary}) {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
     <React.StrictMode>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <App />
+     <BrowserRouter>
+     <App /> 
+     </BrowserRouter>
+             
       </ErrorBoundary>
     </React.StrictMode>
-  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
