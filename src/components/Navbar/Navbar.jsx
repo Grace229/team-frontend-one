@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import Dropdown from 'rsuite/Dropdown';
+import 'rsuite/dist/rsuite.min.css';
+import { NavLink, Link } from 'react-router-dom';
 import Logo from '../../assets/logo.png';
 import { FaSearch } from 'react-icons/fa';
 import { BsCart3 } from 'react-icons/bs';
@@ -35,8 +37,15 @@ function Navbar() {
               </NavLink>
             </div>
             <div className="nav-item">
-              <NavLink to="/login" className="nav-links">
-                <FaUserAlt size="20px" />
+              <NavLink to="" className="nav-links">
+                <Dropdown icon={<FaUserAlt />} className="dropStyle">
+                  <Dropdown.Item className="dropItem">
+                    <Link>Sign In</Link>
+                  </Dropdown.Item>
+                  <Dropdown.Item className="dropItem">
+                    <Link>Login</Link>
+                  </Dropdown.Item>
+                </Dropdown>
               </NavLink>
             </div>
             <div className="nav-item">
