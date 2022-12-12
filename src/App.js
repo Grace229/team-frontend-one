@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
 import Login from './pages/auth/SignIn'
 import Register from './pages/auth/SignUp'
-import Home from './pages/index'
-import { Routes, Route } from 'react-router-dom';
 import { AuthContextProvider } from './components/context/AuthContext';
 import Account from './pages/auth/Account';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+
+//Implement lazy loading
+const PageNotFound = React.lazy(() => import('./pages/PageNotFound'));
+const AllProducts = React.lazy(() =>
+  import('./components/AllProducts/AllProducts')
+);
+const SingleProduct = React.lazy(() =>
+  import('./components/SingleProduct/SingleProduct')
+);
 
 function App() {
   return (
@@ -23,7 +32,6 @@ function App() {
           <Route path="/checkout" />
           <Route path="/review" />
           <Route path="/contact" />
-          <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
         </Routes>
