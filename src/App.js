@@ -10,17 +10,26 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 function App() {
   return (
     <>
-   <AuthContextProvider>
-   <Routes>
+   <AuthContextProvider>       
+    <Layout>
+      <Suspense fallback={<div className='loading'><p>Loading...</p></div>}>
+        <Routes>
+          <Route path="*" element={<PageNotFound />} />
+          <Route path="account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
+          <Route path="/" element={<Navigate to="/all-products" />} />
+          <Route path="/all-products" element={<AllProducts />} />
+          <Route path="/single-product" element={<SingleProduct />} />
+          <Route path="/cart" />
+          <Route path="/checkout" />
+          <Route path="/review" />
+          <Route path="/contact" />
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/profile' element={<ProtectedRoute><Account /></ProtectedRoute>} />
-
         </Routes>
-   </AuthContextProvider>
-   
-        
+      </Suspense>
+    </Layout>
+    </AuthContextProvider>
     </>
   );
 }
