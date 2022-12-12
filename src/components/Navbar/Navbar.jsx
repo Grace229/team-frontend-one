@@ -1,19 +1,31 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+  import React, { useState } from 'react';
+import {  NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo.png';
 import { FaSearch } from 'react-icons/fa';
 import { BsCart3 } from 'react-icons/bs';
 import { FaUserAlt } from 'react-icons/fa';
 import './Navbar.css';
+import { UserAuth } from '../context/AuthContext';
 
 function Navbar() {
+  const {user, logout} = UserAuth()
+  const navigate = useNavigate
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
+  const handleLogout = async () =>{
+try {
+  await logout()
+  navigate('/')
+} catch (err) {
+  console.log(err.message)
+}
+  }
   return (
     <>
       <nav className="navbar">
         <div className="nav-container">
+         {user && user.email} 
           <div className="nav-logo">
             <img src={Logo} alt="logo" />
           </div>
@@ -49,6 +61,7 @@ function Navbar() {
                 FAQ
               </NavLink>
             </div>
+            <button onClick={handleLogout}>logout</button>
           </div>
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'}></i>
